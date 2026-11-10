@@ -75,6 +75,11 @@ service cloud.firestore {
       allow create, update: if isBoss() || isMemberOf(bid);
       allow delete: if false;
     }
+    // Trang thai sao luu / cai dat rieng cua chi nhanh: nguoi trong chi nhanh xem; GD CN / GD Vung ghi
+    match /branches/{bid}/meta/{doc} {
+      allow read: if isBoss() || isMemberOf(bid);
+      allow write: if isBoss() || isCnOf(bid);
+    }
     // Lịch sử nhân sự
     match /nslog/{id} {
       allow read: if isBoss();

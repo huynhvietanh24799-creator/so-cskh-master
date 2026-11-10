@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#8E0013">
-<meta name="app-v" content="46">
+<meta name="app-v" content="48">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Sổ CSKH">
+<base href="/">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -1073,6 +1074,23 @@ button,a,label,select,summary,[role=button],[data-tab],.tab{-webkit-tap-highligh
 :root[data-theme="dark"] body{font-weight:450}:root[data-theme="dark"] input:not([type=checkbox]):not([type=radio]),:root[data-theme="dark"] select,:root[data-theme="dark"] textarea{background:var(--dk-field)!important;border-color:var(--dk-field-line)!important;color:#fff6f6!important}:root[data-theme="dark"] ::placeholder{color:#b9989c!important;opacity:1}:root[data-theme="dark"] .card,:root[data-theme="dark"] .panel,:root[data-theme="dark"] .ca-row,:root[data-theme="dark"] .stat,:root[data-theme="dark"] .list>*{border-color:var(--line)}:root[data-theme="dark"] .btn.ghost,:root[data-theme="dark"] .btn.line{color:#ffd9dc!important;border-color:#7a3a42!important;background:#2c1a1e!important}:root[data-theme="dark"] .btn.danger{color:#fff!important;background:#7a1622!important;border-color:#a3263a!important}:root[data-theme="dark"] .chip{color:#ffe7e9}:root[data-theme="dark"] .ca-b,:root[data-theme="dark"] .seg button,:root[data-theme="dark"] [data-tof],:root[data-theme="dark"] [data-pf]{color:#fff1f2;border-color:#5a363c}:root[data-theme="dark"] .ca-b.on{color:#fff}:root[data-theme="dark"] .ca-n{color:#fff}:root[data-theme="dark"] .count,:root[data-theme="dark"] .day-label,:root[data-theme="dark"] .notice{color:var(--muted)}:root[data-theme="dark"] .pl-quick button{background:#2c1a1e;color:#ffd9dc;border-color:#7a3a42}:root[data-theme="dark"] .pl-quick button.on{color:#fff}:root[data-theme="dark"] .nk-slauto{background:rgba(255,107,120,.10);color:#ffb3b9}:root[data-theme="dark"] .nk-slauto:not(.on){color:#a98589}:root[data-theme="dark"] .nk-status{background:#2c1a1e!important;color:#ffe7e9!important;border-color:#5a363c!important}:root[data-theme="dark"] .nk-savebar{background:#22161a!important;color:#ffe7e9!important;border-color:#5a363c!important}:root[data-theme="dark"] .nk-paper:not(.pp-paper){background:#1d1215!important;color:#fff6f6}:root[data-theme="dark"] .nk-card{background:#24171b!important;border-color:#5a363c!important}:root[data-theme="dark"] .nk-in,:root[data-theme="dark"] .nk-ta{background:var(--dk-field)!important;color:#fff6f6!important;border-color:var(--dk-field-line)!important}:root[data-theme="dark"] .bn-item .kv dd{background:rgba(255,107,120,.10);border-color:rgba(255,140,150,.28);color:#fff6f6}:root[data-theme="dark"] .bn-item .kv dt{color:#f0d2d5}:root[data-theme="dark"] .tab{color:#ffe7e9}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nk-h{color:#ffb3b9!important}:root:not([data-theme="light"]) .nk-stt{color:#ffb3b9!important}:root:not([data-theme="light"]) .nk-dd-h span,:root:not([data-theme="light"]) .nk-ca-hd span,:root:not([data-theme="light"]) .nk-l>span,:root:not([data-theme="light"]) .nk-kv>span{color:#e3c9cc!important}:root:not([data-theme="light"]) .ca-cb{border-color:#a0646c!important;background:#2c1d21}:root:not([data-theme="light"]) .rc-foot,:root:not([data-theme="light"]) .plan-meta{color:var(--muted)}}
 :root[data-theme="dark"] .nk-h{color:#ffb3b9!important}:root[data-theme="dark"] .nk-stt{color:#ffb3b9!important}:root[data-theme="dark"] .nk-dd-h span,:root[data-theme="dark"] .nk-ca-hd span,:root[data-theme="dark"] .nk-l>span,:root[data-theme="dark"] .nk-kv>span{color:#e3c9cc!important}:root[data-theme="dark"] .ca-cb{border-color:#a0646c!important;background:#2c1d21}:root[data-theme="dark"] .rc-foot,:root[data-theme="dark"] .plan-meta{color:var(--muted)}
+
+/* v47: link riêng + sao lưu Drive riêng từng chi nhánh */
+.br-link-chip{margin:6px auto 0;text-align:center;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 14px;width:fit-content;max-width:100%}
+.bk2{grid-column:1/-1;display:flex;flex-direction:column;gap:8px;margin-top:10px;padding:12px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.bk2-link{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.bk2-link>span{font-weight:700}
+.bk2-link code{flex:1 1 180px;min-width:0;overflow-wrap:anywhere;font-size:13px;padding:6px 8px;border-radius:8px;background:var(--surface);border:1px dashed var(--line)}
+.bk2-st{display:flex;flex-direction:column;gap:2px}.bk2-st>span{font-weight:700}.bk2-st b{font-weight:600;font-size:13.5px}
+.bk2-st b.ok{color:var(--ok)}.bk2-st b.warn{color:var(--warm)}.bk2-st b.off{color:var(--muted)}
+.bk2-act{display:flex;gap:8px;flex-wrap:wrap}.bk2 .notice{margin:0}
+.bk-banner{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;border-radius:14px;background:var(--amber-soft);border:1px solid var(--amber);color:var(--ink);font-weight:600}
+.bk-banner span{flex:1 1 200px}
+/* v48: sao lưu tự động 23h */
+.drv-guide{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center}
+.drv-card{background:var(--surface);color:var(--ink);width:min(680px,100%);max-height:92vh;overflow:auto;border-radius:18px 18px 0 0;padding:16px;display:flex;flex-direction:column;gap:10px}
+@media(min-width:700px){.drv-guide{align-items:center}.drv-card{border-radius:18px}}
+.drv-h{display:flex;justify-content:space-between;align-items:center;gap:8px}.drv-card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;line-height:1.5}
+.drv-act{display:flex;gap:8px;flex-wrap:wrap}.drv-code{width:100%;min-height:160px;font:12px/1.4 ui-monospace,monospace;box-sizing:border-box}
 </style>
 
 </head>
@@ -1096,6 +1114,7 @@ button,a,label,select,summary,[role=button],[data-tab],.tab{-webkit-tap-highligh
   <section class="panel" id="login" hidden>
     <img class="login-logo" src="icon-192.png" alt="GHL">
     <h2 style="text-align:center">Đăng nhập Sổ CSKH</h2>
+    <p class="br-link-chip" id="loginBr" hidden></p>
     <p class="notice">Đăng nhập bằng tài khoản Google (Gmail) của bạn. Mỗi nhân viên dùng tài khoản riêng.</p>
     <div class="notice" id="inApp" hidden style="background:#fff4e5;border:1px solid #f3c27a;border-radius:12px;padding:12px;color:#7a4b00">
       <b>Bạn đang mở link trong Zalo/Facebook.</b> Google không cho đăng nhập ở đây.
@@ -1585,13 +1604,20 @@ try{ fdb.settings({ignoreUndefinedProperties:true, merge:true}); }catch(e){}
 try{ fdb.enablePersistence({synchronizeTabs:true}).catch(()=>{}); }catch(e){}
 try{ if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{}); }catch(e){}
 const auth=firebase.auth();
+/* v47: link riêng từng chi nhánh — so-cskh.web.app/<mã-chi-nhánh> */
+const brSlug=b=>{ const t=String(((b&&b.sys)||"")+" "+((b&&b.name)||"")).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""); return t||String((b&&b.id)||""); };
+const LINK_SLUG=(()=>{ const m=location.pathname.match(/^\/([a-z0-9][a-z0-9-]{1,60})\/?$/i); const v=m?m[1].toLowerCase():""; try{ if(v) localStorage.setItem("cskh_cn",v); }catch(e){} if(v) return v; try{ return STANDALONE_EARLY()?(localStorage.getItem("cskh_cn")||""):""; }catch(e){ return ""; } })();
+function STANDALONE_EARLY(){ return (window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true; }
+const brLink=b=>location.origin+"/"+brSlug(b);
+const linkBranch=()=>LINK_SLUG?(S.branches||[]).find(b=>brSlug(b)===LINK_SLUG)||null:null;
 S.db=fdb;
 const show=id=>["bootMsg","login","claim","pending","onboard"].forEach(x=>$(x).hidden = x!==id);
 const UA=navigator.userAgent||"";
 const IN_APP=/Zalo|FBAN|FBAV|FB_IAB|Instagram|Line\/|Messenger|TikTok|; wv\)/i.test(UA);
 const STANDALONE=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
 if(IN_APP) $("inApp").hidden=false;
-$("copyLink").onclick=async()=>{ const u=location.origin+"/"; try{ await navigator.clipboard.writeText(u); toast("Đã sao chép: "+u); }catch(e){ prompt("Sao chép link này:",u); } };
+if(LINK_SLUG){ $("loginBr").hidden=false; $("loginBr").textContent="🏢 Link chi nhánh: "+LINK_SLUG.toUpperCase().replace(/-/g," "); }
+$("copyLink").onclick=async()=>{ const u=location.origin+"/"+(LINK_SLUG||""); try{ await navigator.clipboard.writeText(u); toast("Đã sao chép: "+u); }catch(e){ prompt("Sao chép link này:",u); } };
 auth.getRedirectResult().catch(e=>{ if(e&&e.code&&e.code!=="auth/no-auth-event"){ $("loginErr").textContent="Chưa đăng nhập được ("+e.code+"). Bấm Đăng nhập lại."; $("loginErr").hidden=false; } });
 $("gLogin").onclick=async()=>{
   const prov=new firebase.auth.GoogleAuthProvider(); prov.setCustomParameters({prompt:"select_account"});
@@ -1643,6 +1669,7 @@ async function loadObBranches(){
   try{ const snap=await fdb.collection("branches").get(); const list=sortBr(snap.docs.map(d=>({id:d.id,...d.data()})));
     $("obBrField").hidden=!list.length;
     if(list.length && !$("myBranch").options.length) $("myBranch").innerHTML=`<option value="">Chọn chi nhánh</option>`+list.map(b=>`<option value="${esc(b.id)}">${esc(brLabel(b))}</option>`).join("");
+    const lb=LINK_SLUG&&list.find(b=>brSlug(b)===LINK_SLUG); if(lb){ $("myBranch").value=lb.id; $("myBranch").disabled=true; }
   }catch(e){} }
 $("saveName").onclick = async () => {
   const name=$("myName").value.trim(); if(!name){ $("myName").focus(); return; }
@@ -1677,7 +1704,7 @@ function startApp(){
   $("whoami").textContent = S.myName;
   S.db.collection("branches").onSnapshot(snap=>{ S.branches=sortBr(snap.docs.map(d=>({id:d.id,...d.data()})));
     const b=brOf(S.myBranch); $("whoami").textContent=S.myName+(b?" · "+brLabel(b):""); $("zaloGrp").classList.toggle("off",!zaloLink());
-    renderScope(); renderStaffSheet(); renderBrSheet(); renderAll(); }, err=>console.warn("branches",err));
+    renderScope(); renderStaffSheet(); renderBrSheet(); renderAll(); linkApply(); }, err=>console.warn("branches",err));
   S.db.collection("bstats").where("p","in",[today(),today().slice(0,7)]).onSnapshot(snap=>{ S.bstats={}; snap.docs.forEach(d=>{ S.bstats[d.id]=d.data(); }); renderBrSheet(); }, err=>console.warn("bstats",err));
   S.staff[S.me]={name:S.myName};
   subscribeStaff(S.me);
@@ -2162,7 +2189,7 @@ function bmtnDocx(dateStr,groups){
 $("xlsxBtn").onclick=()=>{ const btn=$("xlsxBtn"), lbl=btn.textContent;
   try{ btn.disabled=true; btn.textContent="Đang tạo…";
     const d=S.repDate, toF=$("repTo").value;
-    const ok=(sid,pid)=>{ const p=parentOf(sid,pid); return p && (!toF || p.to===toF) ? p : null; };
+    const ok=(sid,pid)=>{ const p=parentOf(sid,pid); return p && (!toF || p.to===toF) && (S.repLoai!=="bmtn" || p.loai==="tiem_nang") ? p : null; };
     const logs=all("logs").filter(l=>l.date===d && ok(l._sid,l.parentId));
     const plans=all("plans").filter(x=>x.date===d && ok(x._sid,x.parentId));
     const keys=[...new Set([...logs,...plans].map(x=>x._sid+"|"+x.parentId))];
@@ -3668,57 +3695,115 @@ function bkStatus(b){
   if(b.backupGmail || b.backupFolderId) return {k:"warn", text:"⚠️ Thiếu "+(b.backupGmail?"link folder":"Gmail chi nhánh")};
   return {k:"off", text:"❌ Chưa cài đặt backup"};
 }
-function backupBlock(b){
-  const canEdit = S.isBoss || (S.cnLike && b.id===S.myBranch);
-  const open = S.bkOpen===b.id;
-  const st = bkStatus(b);
-  const col = st.k==="ok" ? "var(--ok)" : st.k==="warn" ? "var(--warm)" : "var(--muted)";
-  const bg  = st.k==="ok" ? "var(--ok-soft)" : st.k==="warn" ? "#fff3e0" : "var(--bg)";
-  const dirty = S.bkDirty[b.id] || {};
-  const gm = ("backupGmail" in dirty) ? dirty.backupGmail : (b.backupGmail||"");
-  const flRaw = ("backupFolderLink" in dirty) ? dirty.backupFolderLink : (b.backupFolderLink || b.backupFolderId || "");
-  const fid = extractFolderId(flRaw);
-  const bar = `<div class="bk-bar" style="background:${bg};border:1px solid ${col}"><span style="color:${col};font-weight:600">💾 Backup Google Drive · ${esc(st.text)}</span>${canEdit?`<button type="button" class="btn ghost sm" data-bktog="${esc(b.id)}">${open?"Đóng":(st.k==="ok"?"Chỉnh sửa":"Cài đặt")} ${open?"▲":"▼"}</button>`:""}</div>`;
-  if(!open) return bar;
-  const guide = `<div class="bk-guide"><b>Cách cài (lần đầu, ~3 phút):</b><ol>
-    <li>Mở <b>Gmail chi nhánh</b> của chi nhánh này (hoặc bất kỳ Gmail nào anh/chị muốn nhận bản sao)</li>
-    <li>Vào <b>Google Drive</b> của Gmail đó → bấm <b>Mới → Thư mục</b> → đặt tên: <b>"Thông tin ba mẹ"</b></li>
-    <li>Mở folder vừa tạo → bấm <b>Chia sẻ</b> → nhập email này: <code>${esc(bkOwner())}</code> → chọn quyền <b>Người chỉnh sửa (Editor)</b> → <b>Gửi</b></li>
-    <li>Vẫn trong folder → bấm <b>Chia sẻ → Sao chép liên kết</b></li>
-    <li>Dán link vào ô "Link folder" bên dưới, nhập Gmail chi nhánh vào ô "Gmail", bấm <b>Lưu</b></li>
-    <li>Đêm hôm đó (23h) backup đầu tiên sẽ chạy. Mỗi ngày tạo 1 file Google Sheets trong folder, chia theo tháng.</li></ol></div>`;
-  const panel = canEdit ? `<div class="bk-panel">
-    <label class="field"><span>📧 Gmail chi nhánh <small>(dùng để nhận backup)</small></span><input class="bk-in" data-bkf="backupGmail" data-bkid="${esc(b.id)}" type="email" placeholder="VD: chinhanh.hpl@gmail.com" value="${esc(gm)}"></label>
-    <label class="field"><span>📁 Link folder "Thông tin ba mẹ" <small>(dán toàn bộ URL hoặc chỉ ID folder)</small></span><input class="bk-in" data-bkf="backupFolderLink" data-bkid="${esc(b.id)}" type="url" placeholder="https://drive.google.com/drive/folders/..." value="${esc(flRaw)}"></label>
-    ${flRaw?`<p class="notice" style="margin-top:-4px">${fid?`✓ Đã nhận folder ID: <code>${esc(fid)}</code>`:`⚠️ Link chưa đúng — phải chứa <code>/folders/</code> hoặc là ID folder (20+ ký tự)`}</p>`:""}
-    <details class="bk-help"><summary>📖 Hướng dẫn chi tiết (bấm để mở)</summary>${guide}</details>
-    <div class="actions"><button type="button" class="btn line sm" data-bkcancel="${esc(b.id)}">Hủy</button><button type="button" class="btn sm" data-bksave="${esc(b.id)}" ${S.bkSaving===b.id?"disabled":""}>${S.bkSaving===b.id?"Đang lưu…":"Lưu"}</button></div>
-  </div>` : "";
-  return bar + panel;
-}
-document.addEventListener("click", async e=>{
-  const t=e.target.closest("[data-bktog]"); if(t){ S.bkOpen = S.bkOpen===t.dataset.bktog ? null : t.dataset.bktog; S.bkDirty={}; renderBrSheet(); return; }
-  const c=e.target.closest("[data-bkcancel]"); if(c){ S.bkOpen=null; S.bkDirty={}; renderBrSheet(); return; }
-  const s=e.target.closest("[data-bksave]"); if(s){
-    const bid=s.dataset.bksave, d=S.bkDirty[bid]||{};
-    const b=brOf(bid)||{}; const gm=("backupGmail" in d)?d.backupGmail.trim():(b.backupGmail||"");
-    const raw=("backupFolderLink" in d)?d.backupFolderLink.trim():(b.backupFolderLink||b.backupFolderId||"");
-    const fid=extractFolderId(raw);
-    const upd={updatedAt:Date.now()};
-    if(gm) upd.backupGmail=gm; else upd.backupGmail=firebase.firestore.FieldValue?.delete?.() || "";
-    if(raw){ upd.backupFolderLink=raw; if(fid) upd.backupFolderId=fid; } else { upd.backupFolderLink=""; upd.backupFolderId=""; }
-    if(gm && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(gm)){ toast("Gmail chưa hợp lệ"); return; }
-    if(raw && !fid){ toast("Link folder chưa hợp lệ — kiểm tra lại"); return; }
-    S.bkSaving=bid; renderBrSheet();
-    try{ await S.db.doc("branches/"+bid).update(upd); S.bkSaving=null; S.bkOpen=null; S.bkDirty={}; toast("Đã lưu cài đặt backup"); }
-    catch(err){ S.bkSaving=null; renderBrSheet(); toast("Chưa lưu được: "+(err.message||err.code||"")); }
-  }
-});
-document.addEventListener("input", e=>{ const i=e.target.closest(".bk-in"); if(!i) return;
-  const bid=i.dataset.bkid, f=i.dataset.bkf; S.bkDirty[bid]=S.bkDirty[bid]||{}; S.bkDirty[bid][f]=i.value;
-  // Live update ID hint without full re-render (keep focus)
-  if(f==="backupFolderLink"){ const panel=i.closest(".bk-panel"); const hint=panel?panel.querySelector(".notice"):null; if(hint){ const fid=extractFolderId(i.value); hint.innerHTML = i.value?(fid?`✓ Đã nhận folder ID: <code>${esc(fid)}</code>`:`⚠️ Link chưa đúng — phải chứa <code>/folders/</code> hoặc là ID folder (20+ ký tự)`):""; }}
-});
+/* v47: mỗi chi nhánh tự sao lưu vào Google Drive của chính GĐ chi nhánh — không còn Drive tổng.
+   App xin quyền "drive.file" (chỉ tạo/sửa file do app tạo), dữ liệu đi thẳng từ trình duyệt GĐ vào Drive của GĐ. */
+let linkApplied=false;
+function linkApply(){ if(linkApplied||!LINK_SLUG||!S.branches||!S.branches.length) return; const lb=linkBranch(); if(!lb) return; linkApplied=true;
+  if(S.isBoss){ S.scope="b:"+lb.id; try{ renderScope(); renderAll(); }catch(e){} toast("Đang mở chi nhánh "+brLabel(lb)); return; }
+  if(S.myBranch&&S.myBranch!==lb.id){ const mb=brOf(S.myBranch); toast(`Link này của ${brLabel(lb)}. Bạn thuộc ${mb?brLabel(mb):"chi nhánh khác"} nên chỉ thấy dữ liệu chi nhánh của mình.`); } }
+const BK_SCOPE="https://www.googleapis.com/auth/drive.file";
+const bkCanRun=bid=>!!bid&&bid===S.myBranch&&!!(S.cnLike);           // chỉ GĐ / người có quyền GĐ của CHÍNH chi nhánh đó
+const bkKey=(bid,k)=>`cskh_bk_${k}_${bid}_${(auth.currentUser&&auth.currentUser.email)||""}`;
+const lsGet=k=>{ try{ return localStorage.getItem(k)||""; }catch(e){ return ""; } }, lsSet=(k,v)=>{ try{ localStorage.setItem(k,v); }catch(e){} };
+S.bk={running:null, tok:null, tokAt:0, meta:{}};
+async function bkToken(){ if(S.bk.tok&&Date.now()-S.bk.tokAt<45*60e3) return S.bk.tok;
+  const prov=new firebase.auth.GoogleAuthProvider(); prov.addScope(BK_SCOPE); const em=auth.currentUser&&auth.currentUser.email; if(em) prov.setCustomParameters({login_hint:em});
+  const r=await auth.currentUser.reauthenticateWithPopup(prov); const t=r&&r.credential&&r.credential.accessToken; if(!t) throw new Error("Không nhận được quyền Google Drive");
+  S.bk.tok=t; S.bk.tokAt=Date.now(); return t; }
+async function gapi(tok,url,opt={}){ const r=await fetch(url,Object.assign({},opt,{headers:Object.assign({Authorization:"Bearer "+tok},opt.headers||{})})); if(!r.ok){ let m=""; try{ m=(await r.json()).error.message; }catch(e){} throw new Error("Drive "+r.status+(m?": "+m:"")); } return r.json(); }
+async function bkFolder(tok,b){ const name="Sổ CSKH – "+brLabel(b), saved=lsGet(bkKey(b.id,"folder"));
+  if(saved){ try{ const f=await gapi(tok,`https://www.googleapis.com/drive/v3/files/${saved}?fields=id,trashed`); if(f&&!f.trashed) return saved; }catch(e){} }
+  const q=encodeURIComponent(`name='${name.replace(/'/g,"\\'")}' and mimeType='application/vnd.google-apps.folder' and trashed=false`);
+  const l=await gapi(tok,`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id)&spaces=drive`); let id=l.files&&l.files[0]&&l.files[0].id;
+  if(!id){ const c=await gapi(tok,"https://www.googleapis.com/drive/v3/files",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,mimeType:"application/vnd.google-apps.folder"})}); id=c.id; }
+  lsSet(bkKey(b.id,"folder"),id); return id; }
+async function bkUpload(tok,parent,name,blob,mime,asSheet){ const meta={name,parents:[parent]}; if(asSheet) meta.mimeType="application/vnd.google-apps.spreadsheet";
+  const fd=new FormData(); fd.append("metadata",new Blob([JSON.stringify(meta)],{type:"application/json"})); fd.append("file",new Blob([blob],{type:mime}));
+  return gapi(tok,"https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,webViewLink",{method:"POST",body:fd}); }
+async function bkCollect(bid){ const sids=Object.keys(S.staffInfo||{}).filter(k=>(S.staffInfo[k]||{}).chiNhanh===bid); if(S.me&&S.myBranch===bid&&!sids.includes(S.me)) sids.push(S.me);
+  const out={app:"So CSKH",ver:(document.querySelector('meta[name="app-v"]')||{}).content||"",branch:Object.assign({},brOf(bid)||{id:bid}),exportedAt:new Date().toISOString(),by:(auth.currentUser||{}).email||"",teams:teamsOf(bid),staff:{},nhatky:[]};
+  for(const sid of sids){ const base=S.db.doc("staff/"+sid), st={info:Object.assign({},S.staffInfo[sid]||{})};
+    for(const k of ["parents","plans","logs","att","notes"]){ try{ const q=await base.collection(k).get(); st[k]=q.docs.map(d=>({id:d.id,...d.data()})); }catch(e){ st[k]=[]; st[k+"Err"]=String(e.code||e.message||e); } }
+    out.staff[sid]=st; }
+  try{ const q=await S.db.collection(`branches/${bid}/nhatky`).get(); out.nhatky=q.docs.map(d=>({id:d.id,...d.data()})); }catch(e){}
+  return out; }
+function bkXlsx(D){ const nm=sid=>((D.staff[sid]||{}).info||{}).name||sid, P={}, rows={bm:[],rep:[],att:[],plan:[],nk:[]};
+  Object.entries(D.staff).forEach(([sid,st])=>{ (st.parents||[]).forEach(p=>{ P[sid+"|"+p.id]=p;
+      rows.bm.push([p.tenBaMe||"",p.to||"",p.loai==="tiem_nang"?"Tiềm năng":"Chính thức",p.sdt||"",p.ngaySinh||"",p.diaChi||"",(p.ca||[]).join(", "),(p.benh||[]).map(b=>b.ten).filter(Boolean).join(", ")||p.tenBenh||"",nm(sid),p.deleted?"Đã xóa":""]); }); });
+  const bmN=(sid,pid)=>(P[sid+"|"+pid]||{}).tenBaMe||pid, tv=v=>v==null||v===""?"":Number(v);
+  Object.entries(D.staff).forEach(([sid,st])=>{
+    (st.logs||[]).forEach(l=>{ const t=l.tn||{}; rows.rep.push([l.date||"",bmN(sid,l.parentId),tv(t.truocTren),tv(t.truocDuoi),tv(t.sauTren),tv(t.sauDuoi),(l.talks&&l.talks.length?l.talks.map(x=>x.t).join("\n"):l.baoCao)||"",l.pyph?("Có"+(l.pyphNote?": "+l.pyphNote:"")):"",l.khMai||"",nm(l.by||sid)]); });
+    (st.att||[]).forEach(a=>rows.att.push([a.date||"",bmN(sid,a.parentId),a.ca||"",a.status==="co"?"Có mặt":(a.status||""),nm(a.by||sid)]));
+    (st.plans||[]).forEach(x=>rows.plan.push([x.date||"",bmN(sid,x.parentId),x.noiDung||"",x.done?"Xong":"Chưa"])); });
+  (D.nhatky||[]).forEach(n=>rows.nk.push([n.date||n.id,(n.tk&&n.tk.slkh)||"",(n.tk&&n.tk.moi)||"",n.deTai||"",n.congTac||"",(n.tk&&n.tk.ghi)||""]));
+  const srt=a=>a.sort((x,y)=>String(y[0]).localeCompare(String(x[0])));
+  const wb=XLSX.utils.book_new(), add=(name,head,r)=>{ const ws=XLSX.utils.aoa_to_sheet([head,...r]); ws["!cols"]=head.map(()=>({wch:18})); XLSX.utils.book_append_sheet(wb,ws,name); };
+  add("Ba mẹ",["Tên ba mẹ","Tổ","Loại","SĐT","Ngày sinh","Địa chỉ","Ca","Bệnh","Người phụ trách","Ghi chú"],rows.bm.sort((a,b)=>a[0].localeCompare(b[0],"vi")));
+  add("Báo cáo",["Ngày","Ba mẹ","Trước-Trên","Trước-Dưới","Sau-Trên","Sau-Dưới","Nội dung nói chuyện","PƯPH","KH ngày mai","Người báo cáo"],srt(rows.rep));
+  add("Điểm danh",["Ngày","Ba mẹ","Ca","Trạng thái","Người điểm danh"],srt(rows.att));
+  add("Kế hoạch",["Ngày","Ba mẹ","Việc","Trạng thái"],srt(rows.plan));
+  add("Nhật ký",["Ngày","SLKH","Mới","Đề tài","Công tác","Tổng kết"],srt(rows.nk));
+  return XLSX.write(wb,{bookType:"xlsx",type:"array"}); }
+async function bkRun(bid,btn){ if(!bkCanRun(bid)){ toast("Chỉ GĐ chi nhánh (hoặc người có quyền GĐ) của chi nhánh này mới sao lưu được"); return; }
+  if(S.bk.running) return; const b=brOf(bid)||{id:bid,name:bid}; S.bk.running=bid; renderBrSheet(); bkBanner();
+  try{ const tok=await bkToken(); toast("Đang gom dữ liệu chi nhánh…");
+    const D=await bkCollect(bid); await loadXLSX(); const fid=await bkFolder(tok,b);
+    const d=today(), base=`SoCSKH_${fileSafe(brLabel(b))}_${d}`;
+    await bkUpload(tok,fid,base+".json",JSON.stringify(D),"application/json",false);
+    await bkUpload(tok,fid,base,bkXlsx(D),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",true);
+    const n=Object.values(D.staff).reduce((a,st)=>a+(st.parents||[]).length,0);
+    lsSet(bkKey(bid,"last"),d); lsSet(bkKey(bid,"auto"),"1");
+    try{ await S.db.doc(`branches/${bid}/meta/backup`).set({lastAt:Date.now(),lastDate:d,by:S.me,byName:S.myName||"",nBm:n},{merge:true}); }catch(e){}
+    S.bk.meta[bid]={lastAt:Date.now(),lastDate:d,byName:S.myName||"",nBm:n};
+    toast(`Đã sao lưu ${n} ba mẹ vào Google Drive của bạn`); }
+  catch(e){ console.warn(e); const m=String(e&&(e.code||e.message)||e); toast(/popup|cancel/i.test(m)?"Chưa cấp quyền Google Drive — bấm Sao lưu lại và chọn Cho phép":"Chưa sao lưu được: "+m); }
+  finally{ S.bk.running=null; renderBrSheet(); bkBanner(); } }
+function bkLoadMeta(bid){ if(S.bk.meta[bid]!==undefined) return; S.bk.meta[bid]=null;
+  S.db.doc(`branches/${bid}/meta/backup`).get().then(d=>{ S.bk.meta[bid]=d.exists?d.data():false; renderBrSheet(); bkBanner(); }).catch(()=>{ S.bk.meta[bid]=false; }); }
+/* ---- v48: sao lưu TỰ ĐỘNG 23h vào Drive của GĐ chi nhánh (cổng Apps Script trong Gmail của GĐ) ---- */
+const BK_AUTO_GS="/**\n * Sổ CSKH – SAO LƯU TỰ ĐỘNG 23H VÀO DRIVE CỦA CHI NHÁNH: __BNAME__\n * ---------------------------------------------------------------\n * Chạy trong Gmail của GĐ chi nhánh. Mỗi đêm 23h tự gom dữ liệu chi nhánh và lưu vào Drive CỦA BẠN:\n *   • Thư mục \"Ba mẹ\" → mỗi ba mẹ 1 thư mục gồm 2 file Google Sheet:\n *       1) \"<Tên> – Hồ sơ & quá trình\": thông tin ba mẹ + toàn bộ báo cáo, điểm danh, kế hoạch, ghi chú từ lúc đi tập máy đến nay\n *       2) \"<Tên> – Quá trình thực hành PPTN\": phiếu thân nhiệt, tình trạng sức khoẻ, độ nhẹ\n *   • File .json đầy đủ của cả chi nhánh theo ngày (giữ 14 bản gần nhất, dùng để khôi phục)\n * Không ai khác (kể cả GĐ Vùng) mở được các file này.\n *\n * CÀI ĐẶT (1 lần): dán mã này vào script.google.com → chọn hàm \"caiDat\" → ▶ Chạy → Cho phép quyền.\n * Muốn dừng: chọn hàm \"tatTuDong\" → ▶ Chạy.\n */\nconst BRANCH_ID = \"__BID__\";\nconst BRANCH_NAME = \"__BNAME__\";\nconst PROJECT = \"__PID__\";\nconst API_KEY = \"__KEY__\";\nconst REFRESH_TOKEN = \"__RT__\";   // khoá riêng của bạn – không chia sẻ mã này cho ai\nconst KEEP_JSON = 14;\n\nfunction caiDat(){\n  tatTuDong();\n  ScriptApp.newTrigger(\"saoLuuDem\").timeBased().everyDays(1).atHour(23).nearMinute(0).inTimezone(\"Asia/Ho_Chi_Minh\").create();\n  const r = saoLuuDem();\n  Logger.log(\"Đã bật sao lưu tự động 23h mỗi đêm. Lần đầu: \" + JSON.stringify(r));\n}\nfunction tatTuDong(){ ScriptApp.getProjectTriggers().forEach(t=>{ if(t.getHandlerFunction()===\"saoLuuDem\") ScriptApp.deleteTrigger(t); }); }\n\n/* ---------- Firestore (đọc bằng chính tài khoản GĐ chi nhánh) ---------- */\nconst FS = \"https://firestore.googleapis.com/v1/projects/\"+PROJECT+\"/databases/(default)/documents\";\nfunction token_(){\n  const r = UrlFetchApp.fetch(\"https://securetoken.googleapis.com/v1/token?key=\"+API_KEY,\n    {method:\"post\", payload:{grant_type:\"refresh_token\", refresh_token:REFRESH_TOKEN}, muteHttpExceptions:true});\n  const j = JSON.parse(r.getContentText());\n  if(!j.id_token) throw new Error(\"Khoá đăng nhập hết hạn hoặc bị thu hồi – hãy lấy mã mới trong app (Chi nhánh → Sao lưu tự động)\");\n  return j.id_token;\n}\nfunction dec_(v){\n  if(v==null) return null;\n  if(\"stringValue\" in v) return v.stringValue;\n  if(\"integerValue\" in v) return Number(v.integerValue);\n  if(\"doubleValue\" in v) return v.doubleValue;\n  if(\"booleanValue\" in v) return v.booleanValue;\n  if(\"nullValue\" in v) return null;\n  if(\"timestampValue\" in v) return v.timestampValue;\n  if(\"arrayValue\" in v) return (v.arrayValue.values||[]).map(dec_);\n  if(\"mapValue\" in v){ const o={}, f=v.mapValue.fields||{}; for(const k in f) o[k]=dec_(f[k]); return o; }\n  return null;\n}\nfunction docObj_(d){ const o={id:d.name.split(\"/\").pop()}, f=d.fields||{}; for(const k in f) o[k]=dec_(f[k]); return o; }\nfunction get_(tok, url, tries){\n  for(let i=0;i<(tries||3);i++){\n    const r = UrlFetchApp.fetch(url,{headers:{Authorization:\"Bearer \"+tok}, muteHttpExceptions:true});\n    const c = r.getResponseCode();\n    if(c===200) return JSON.parse(r.getContentText());\n    if(c===404) return {};\n    if(c===429||c>=500){ Utilities.sleep(1500*(i+1)); continue; }\n    throw new Error(\"Firestore \"+c+\": \"+r.getContentText().slice(0,200));\n  }\n  throw new Error(\"Firestore bận, thử lại sau\");\n}\nfunction list_(tok, path){\n  const out=[]; let pt=\"\";\n  do{ const j=get_(tok, FS+\"/\"+path+\"?pageSize=300\"+(pt?\"&pageToken=\"+encodeURIComponent(pt):\"\"));\n      (j.documents||[]).forEach(d=>out.push(docObj_(d))); pt=j.nextPageToken||\"\"; }while(pt);\n  return out;\n}\nfunction staffOfBranch_(tok){\n  const r = UrlFetchApp.fetch(FS+\":runQuery\",{method:\"post\",contentType:\"application/json\",headers:{Authorization:\"Bearer \"+tok},muteHttpExceptions:true,\n    payload:JSON.stringify({structuredQuery:{from:[{collectionId:\"staff\"}],where:{fieldFilter:{field:{fieldPath:\"chiNhanh\"},op:\"EQUAL\",value:{stringValue:BRANCH_ID}}}}})});\n  if(r.getResponseCode()!==200) throw new Error(\"Không đọc được danh sách nhân sự: \"+r.getContentText().slice(0,200));\n  return JSON.parse(r.getContentText()).filter(x=>x.document).map(x=>docObj_(x.document));\n}\nfunction collect_(tok){\n  const D = {app:\"So CSKH\", branch:{id:BRANCH_ID,name:BRANCH_NAME}, exportedAt:new Date().toISOString(), staff:{}, nhatky:[]};\n  staffOfBranch_(tok).forEach(s=>{\n    const st={info:s}; [\"parents\",\"plans\",\"logs\",\"att\",\"notes\"].forEach(k=>{ st[k]=list_(tok,\"staff/\"+s.id+\"/\"+k); }); D.staff[s.id]=st; });\n  D.nhatky = list_(tok,\"branches/\"+BRANCH_ID+\"/nhatky\");\n  return D;\n}\n\n/* ---------- ghi vào Drive ---------- */\n\nfunction reportStatus_(tok, nBm){\n  const now=Date.now(), d=Utilities.formatDate(new Date(),\"Asia/Ho_Chi_Minh\",\"yyyy-MM-dd\");\n  const f={lastAt:{integerValue:String(now)},lastDate:{stringValue:d},byName:{stringValue:\"Tự động 23h\"},nBm:{integerValue:String(nBm)},auto:{booleanValue:true}};\n  UrlFetchApp.fetch(FS+\"/branches/\"+BRANCH_ID+\"/meta/backup?\"+[\"lastAt\",\"lastDate\",\"byName\",\"nBm\",\"auto\"].map(k=>\"updateMask.fieldPaths=\"+k).join(\"&\"),\n    {method:\"patch\",contentType:\"application/json\",headers:{Authorization:\"Bearer \"+tok},payload:JSON.stringify({fields:f}),muteHttpExceptions:true});\n}\n\n/* ---------- thư mục & tệp ---------- */\nfunction sub_(parent,name){ const it=parent.getFoldersByName(name); return it.hasNext()?it.next():parent.createFolder(name); }\nfunction root_(){ const name=\"Sổ CSKH – \"+BRANCH_NAME, it=DriveApp.getFoldersByName(name); return it.hasNext()?it.next():DriveApp.createFolder(name); }\nfunction safe_(s){ return String(s||\"\").replace(/[\\\\\\/:*?\"<>|#\\[\\]]+/g,\" \").replace(/\\s+/g,\" \").trim().slice(0,80)||\"Ba mẹ\"; }\nfunction sheetIn_(folder, id, name){\n  if(id){ try{ const f=DriveApp.getFileById(id); if(!f.isTrashed()){ if(f.getName()!==name) f.setName(name); return SpreadsheetApp.openById(id); } }catch(e){} }\n  const ss=SpreadsheetApp.create(name); DriveApp.getFileById(ss.getId()).moveTo(folder); return ss;\n}\nfunction put_(ss, name, rows, widths){\n  let sh=ss.getSheetByName(name)||ss.insertSheet(name); sh.clear();\n  const w=Math.max.apply(null, rows.map(r=>r.length).concat([1]));\n  if(rows.length) sh.getRange(1,1,rows.length,w).setValues(rows.map(r=>{ const x=r.slice(); while(x.length<w) x.push(\"\"); return x.map(v=>v==null?\"\":(typeof v===\"string\"&&v.length>45000?v.slice(0,45000):v)); }));\n  (widths||[]).forEach((px,i)=>sh.setColumnWidth(i+1,px)); sh.setWrap(true); sh.setVerticalAlignment(\"top\");\n  return sh;\n}\nfunction dropFirst_(ss){ const f=ss.getSheetByName(\"Sheet1\")||ss.getSheetByName(\"Trang tính1\"); if(f&&ss.getSheets().length>1) ss.deleteSheet(f); }\n\n/* ---------- gộp báo cáo theo ngày (giống app) ---------- */\nfunction ts_(l){ return Number(l.createdAt||l.updatedAt||0); }\nfunction mergeLogs_(rows){\n  const g={}; rows.filter(r=>!r.mergedInto).forEach(r=>{ const k=r.date||\"\"; (g[k]=g[k]||[]).push(r); });\n  return Object.keys(g).sort().map(d=>{ const list=g[d].sort((a,b)=>ts_(a)-ts_(b)), m={date:d,tn:{},talks:[],pyph:false,pyphNote:[],doNhe:null,khMai:[],ghiChu:[],bys:[]};\n    [\"truocTren\",\"truocDuoi\",\"sauTren\",\"sauDuoi\"].forEach(k=>{ list.forEach(r=>{ const v=r.tn&&r.tn[k]; if(v!=null&&v!==\"\") m.tn[k]=v; }); });\n    list.forEach(r=>{ if(Array.isArray(r.talks)&&r.talks.length) r.talks.forEach(t=>t&&t.t&&m.talks.push(t.t)); else if(r.baoCao) m.talks.push(r.baoCao);\n      if(r.pyph) m.pyph=true; if(r.pyphNote) m.pyphNote.push(r.pyphNote); if(r.doNhe) m.doNhe=r.doNhe; else if(!m.doNhe) m._old=r;\n      if(r.khMai) m.khMai.push(r.khMai); if(r.ghiChu) m.ghiChu.push(r.ghiChu); if(r.by) m.bys.push(r.by); });\n    if(!m.doNhe){ const r=m._old, sk=r&&Array.isArray(r.sucKhoe)&&r.sucKhoe[0];\n      if(sk||(r&&r.hieuQua)) m.doNhe={truoc:{m:sk&&sk.truoc!=null?Number(sk.truoc):null,tt:sk&&sk.ten&&sk.ten!==\"Độ nhẹ\"?sk.ten:\"\"},sau:{m:sk&&sk.sau!=null?Number(sk.sau):null,tt:(r&&r.hieuQua)||\"\"}}; }\n    return m; });\n}\nconst THU_=[\"Chủ nhật\",\"Thứ hai\",\"Thứ ba\",\"Thứ tư\",\"Thứ năm\",\"Thứ sáu\",\"Thứ bảy\"];\nfunction dmy_(d){ const p=String(d||\"\").split(\"-\"); return p.length===3?p[2]+\"/\"+p[1]+\"/\"+p[0]:d||\"\"; }\nfunction thu_(d){ const p=String(d||\"\").split(\"-\").map(Number); return p.length===3?THU_[new Date(p[0],p[1]-1,p[2]).getDay()]:\"\"; }\nconst n1_=v=>v==null||v===\"\"?\"\":Number(v);\nfunction uniq_(a){ return a.filter((x,i)=>x&&a.indexOf(x)===i); }\n\n/* ---------- nội dung từng ba mẹ ---------- */\nfunction profile_(p, D, ownerName){\n  const L=(a,b)=>[a,b==null?\"\":b];\n  const benh=(p.benh||[]).map(b=>b&&b.ten?(b.ten+(b.baoLau?\" (\"+b.baoLau+\")\":\"\")):\"\").filter(Boolean).join(\"; \")||p.tenBenh||\"\";\n  return [[\"THÔNG TIN BA MẸ\",\"\"],\n    L(\"Họ tên\",p.tenBaMe),L(\"Tổ\",p.to),L(\"Loại\",p.loai===\"tiem_nang\"?\"Tiềm năng (BMTN)\":\"Chính thức\"),L(\"Giới tính\",p.gioiTinh===\"nam\"?\"Nam\":p.gioiTinh===\"nu\"?\"Nữ\":\"\"),\n    L(\"Số điện thoại\",p.sdt),L(\"Ngày sinh\",dmy_(p.ngaySinh)),L(\"Địa chỉ\",p.diaChi),\n    L(\"Người thân – SĐT\",p.sdtNguoiThan),L(\"Người thân – quan hệ\",p.quanHe),\n    L(\"Ngày bắt đầu tập máy\",dmy_(p.ngayTapMay)),L(\"Ca tập\",(p.ca||[]).map(c=>\"Ca \"+c).join(\", \")),L(\"Giờ tập\",p.gioTap),\n    L(\"BM hướng dẫn\",p.bmHuongDan),L(\"Người phụ trách\",ownerName),L(\"Thiết bị\",(p.thietBi||[]).join(\", \")),\n    L(\"Bệnh / tình trạng\",benh),L(\"Mong muốn\",p.mongMuon),L(\"Hoàn cảnh\",p.hoanCanh),\n    L(\"Thân nhiệt ban đầu – Trên\",n1_(p.tnBDTren)),L(\"Thân nhiệt ban đầu – Dưới\",n1_(p.tnBDDuoi)),\n    L(\"Nách ban đầu\",p.nachBD),L(\"Eo ban đầu\",p.eoBD),L(\"Cẳng chân ban đầu\",p.canBD),\n    L(\"Nách hiện tại\",p.nachHT),L(\"Eo hiện tại\",p.eoHT),L(\"Cẳng chân hiện tại\",p.canHT),\n    L(\"Cải thiện\",p.caiThien),L(\"Ngày tạo hồ sơ\",p.createdAt?Utilities.formatDate(new Date(Number(p.createdAt)),\"Asia/Ho_Chi_Minh\",\"dd/MM/yyyy\"):\"\")];\n}\nfunction nameOf_(D,sid){ return ((D.staff[sid]||{}).info||{}).name||sid; }\nfunction writeProfile_(ss, p, sid, D, ml, st){\n  const owner=nameOf_(D,sid);\n  put_(ss,\"Thông tin\",profile_(p,D,owner),[220,520]);\n  const rep=[[\"Ngày\",\"Thứ\",\"Thân nhiệt trước – Trên\",\"Trước – Dưới\",\"Sau – Trên\",\"Sau – Dưới\",\"Nội dung nói chuyện\",\"PƯPH\",\"Kế hoạch ngày mai\",\"Ghi chú\",\"Người báo cáo\"]];\n  ml.slice().reverse().forEach(m=>rep.push([dmy_(m.date),thu_(m.date),n1_(m.tn.truocTren),n1_(m.tn.truocDuoi),n1_(m.tn.sauTren),n1_(m.tn.sauDuoi),m.talks.join(\"\\n\"),m.pyph?(\"Có\"+(m.pyphNote.length?\": \"+uniq_(m.pyphNote).join(\"; \"):\"\")):\"\",uniq_(m.khMai).join(\"\\n\"),uniq_(m.ghiChu).join(\"\\n\"),uniq_(m.bys).map(x=>nameOf_(D,x)).join(\", \")]));\n  put_(ss,\"Báo cáo\",rep,[90,80,90,80,80,80,420,160,260,200,140]);\n  const att=[[\"Ngày\",\"Thứ\",\"Ca\",\"Trạng thái\",\"Lý do vắng\",\"Ghi chú\",\"Người điểm danh\"]];\n  (st.att||[]).filter(a=>a.parentId===p.id).sort((a,b)=>String(b.date).localeCompare(String(a.date))).forEach(a=>att.push([dmy_(a.date),thu_(a.date),Array.isArray(a.ca)?a.ca.join(\", \"):(a.ca||\"\"),a.status===\"co\"?\"Có mặt\":a.status===\"vang\"?\"Vắng\":(a.status||\"\"),a.lyDo||\"\",a.ghiChu||\"\",nameOf_(D,a.by||sid)]));\n  put_(ss,\"Điểm danh\",att,[90,80,80,100,200,260,140]);\n  const pl=[[\"Ngày\",\"Việc cần làm\",\"Trạng thái\"]];\n  (st.plans||[]).filter(x=>x.parentId===p.id).sort((a,b)=>String(b.date).localeCompare(String(a.date))).forEach(x=>pl.push([dmy_(x.date),x.noiDung||\"\",x.done?\"Xong\":\"Chưa\"]));\n  put_(ss,\"Kế hoạch\",pl,[90,520,100]);\n  const nt=[[\"Ngày\",\"Ghi chú\",\"Người ghi\"]];\n  (st.notes||[]).filter(x=>x.parentId===p.id).sort((a,b)=>String(b.date).localeCompare(String(a.date))).forEach(x=>nt.push([dmy_(x.date),x.text||\"\",nameOf_(D,x.by||sid)]));\n  put_(ss,\"Ghi chú\",nt,[90,620,140]);\n  dropFirst_(ss);\n}\nfunction writePptn_(ss, p, ml, D){\n  const rows=[[\"TÊN CN: \"+BRANCH_NAME,\"\",\"TỔ: \"+(p.to||\"\"),\"\",\"TÊN BA MẸ: \"+(p.tenBaMe||\"\"),\"\",\"\",\"\",\"\"],\n    [\"QUÁ TRÌNH THỰC HÀNH PHƯƠNG PHÁP THÂN NHIỆT\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\n    [\"Thứ\",\"Ngày\",\"Thân nhiệt TRƯỚC (Trên / Dưới)\",\"Tình trạng sức khoẻ TRƯỚC\",\"Độ nhẹ TRƯỚC (0 nhẹ – 10 nặng)\",\"Thân nhiệt SAU (Trên / Dưới)\",\"Tình trạng sức khoẻ SAU\",\"Độ nhẹ SAU (0 nhẹ – 10 nặng)\",\"Ghi chú\"]];\n  const has=x=>x&&((x.m!=null&&x.m!==\"\")||String(x.tt||\"\").trim());\n  let n=0;\n  ml.slice().reverse().forEach(m=>{ const dn=m.doNhe||{truoc:{},sau:{}}; if(!(has(dn.truoc)||has(dn.sau))) return; n++;\n    const tn=(a,b)=>(a==null||a===\"\"?\"……\":Number(a).toFixed(1))+\" / \"+(b==null||b===\"\"?\"……\":Number(b).toFixed(1));\n    const gc=[m.pyph?(\"PƯPH\"+(m.pyphNote.length?\": \"+uniq_(m.pyphNote).join(\"; \"):\"\")):\"\",uniq_(m.ghiChu).join(\"\\n\")].filter(Boolean).join(\"\\n\");\n    rows.push([thu_(m.date),dmy_(m.date),tn(m.tn.truocTren,m.tn.truocDuoi),(dn.truoc||{}).tt||\"\",n1_((dn.truoc||{}).m),tn(m.tn.sauTren,m.tn.sauDuoi),(dn.sau||{}).tt||\"\",n1_((dn.sau||{}).m),gc]); });\n  if(!n) rows.push([\"Chưa có buổi nào có Độ nhẹ / Tình trạng sức khoẻ.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]);\n  rows.push([\"Green & Happy Life  |  Thân nhiệt quyết định Sinh – Lão – Bệnh – Tử\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]);\n  const sh=put_(ss,\"PPTN\",rows,[90,90,170,260,120,170,260,120,260]);\n  sh.getRange(1,1,2,9).setFontWeight(\"bold\"); sh.getRange(3,1,1,9).setFontWeight(\"bold\").setBackground(\"#fce3e5\");\n  sh.getRange(2,1).setFontSize(14); sh.setFrozenRows(3);\n  dropFirst_(ss);\n}\n\n/* ---------- chạy sao lưu (chia nhiều lượt nếu chi nhánh lớn, mỗi lượt tối đa ~4,5 phút) ---------- */\nconst BUDGET_MS = 270000;\nfunction hash_(o){ return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.MD5, JSON.stringify(o))); }\nfunction readJson_(folder, name){ const it=folder.getFilesByName(name); if(!it.hasNext()) return null; try{ return JSON.parse(it.next().getBlob().getDataAsString()); }catch(e){ return null; } }\nfunction writeJson_(folder, name, obj){ const it=folder.getFilesByName(name); const txt=JSON.stringify(obj); if(it.hasNext()) it.next().setContent(txt); else folder.createFile(name, txt, MimeType.PLAIN_TEXT); }\nfunction clearCont_(){ ScriptApp.getProjectTriggers().forEach(t=>{ if(t.getHandlerFunction()===\"tiepTuc\") ScriptApp.deleteTrigger(t); }); }\nfunction tiepTuc(){ clearCont_(); saoLuuDem(); }\nfunction saoLuuDem(){\n  const t0=Date.now(); clearCont_();\n  const tok=token_(), D=collect_(tok), root=root_(), baMe=sub_(root,\"Ba mẹ\");\n  const idx=readJson_(root,\"_chi_muc.json\")||{}, used={}; let done=0, skipped=0, todo=0, nBm=0;\n  const items=[];\n  Object.keys(D.staff).forEach(sid=>{ const st=D.staff[sid]; (st.parents||[]).forEach(p=>{ if(p.deleted) return; items.push({sid:sid,st:st,p:p}); }); });\n  nBm=items.length;\n  items.sort((a,b)=>String(a.p.tenBaMe||\"\").localeCompare(String(b.p.tenBaMe||\"\"),\"vi\"));\n  const dup={}; items.forEach(it=>{ const k=safe_(it.p.tenBaMe).toLowerCase(); dup[k]=(dup[k]||0)+1; });\n  for(let i=0;i<items.length;i++){\n    const it=items[i], p=it.p, st=it.st, key=it.sid+\"|\"+p.id, rec=idx[key]||{};\n    const logs=(st.logs||[]).filter(l=>l.parentId===p.id), att=(st.att||[]).filter(a=>a.parentId===p.id), plans=(st.plans||[]).filter(x=>x.parentId===p.id), notes=(st.notes||[]).filter(x=>x.parentId===p.id);\n    const h=hash_([p,logs,att,plans,notes,nameOf_(D,it.sid)]);\n    if(rec.h===h && rec.f && rec.a && rec.b){ skipped++; continue; }\n    if(Date.now()-t0>BUDGET_MS){ todo++; continue; }\n    const fname=safe_(p.tenBaMe)+(dup[safe_(p.tenBaMe).toLowerCase()]>1?\" (\"+String(p.id).slice(0,4)+\")\":\"\");\n    let folder=null; if(rec.f){ try{ folder=DriveApp.getFolderById(rec.f); if(folder.isTrashed()) folder=null; }catch(e){ folder=null; } }\n    if(!folder){ folder=baMe.createFolder(fname); rec.a=rec.b=null; } else if(folder.getName()!==fname) folder.setName(fname);\n    const ml=mergeLogs_(logs);\n    const s1=sheetIn_(folder, rec.a, fname+\" – Hồ sơ & quá trình\"); writeProfile_(s1,p,it.sid,D,ml,st);\n    const s2=sheetIn_(folder, rec.b, fname+\" – Quá trình thực hành PPTN\"); writePptn_(s2,p,ml,D);\n    idx[key]={h:h,f:folder.getId(),a:s1.getId(),b:s2.getId()}; done++; if(done%10===0) writeJson_(root,\"_chi_muc.json\",idx);\n  }\n  writeJson_(root,\"_chi_muc.json\",idx);\n  if(todo>0){ ScriptApp.newTrigger(\"tiepTuc\").timeBased().after(60*1000).create(); return {ba_me:nBm, da_ghi:done, bo_qua:skipped, con_lai:todo, ghi_chu:\"Còn \"+todo+\" ba mẹ, tự chạy tiếp sau 1 phút\"}; }\n  // dọn thư mục của ba mẹ đã bị xoá khỏi sổ\n  const live={}; items.forEach(it=>{ live[it.sid+\"|\"+it.p.id]=1; }); Object.keys(idx).forEach(k=>{ if(!live[k]){ try{ DriveApp.getFolderById(idx[k].f).setTrashed(true); }catch(e){} delete idx[k]; } });\n  writeJson_(root,\"_chi_muc.json\",idx);\n  // bản đầy đủ để khôi phục\n  const d=Utilities.formatDate(new Date(),\"Asia/Ho_Chi_Minh\",\"yyyy-MM-dd\"), jn=\"SoCSKH_\"+BRANCH_ID+\"_\"+d+\".json\", bk=sub_(root,\"Khôi phục (json)\");\n  const old=bk.getFilesByName(jn); while(old.hasNext()) old.next().setTrashed(true);\n  bk.createFile(jn, JSON.stringify(D), MimeType.PLAIN_TEXT);\n  const js=[], itf=bk.getFiles(); while(itf.hasNext()){ const f=itf.next(); if(/^SoCSKH_.*\\.json$/.test(f.getName())) js.push(f); }\n  js.sort((a,b)=>b.getName().localeCompare(a.getName())); js.slice(KEEP_JSON).forEach(f=>f.setTrashed(true));\n  reportStatus_(tok,nBm);\n  return {ba_me:nBm, da_ghi:done, bo_qua:skipped, thu_muc:root.getUrl()};\n}\n";
+const bkAutoOn=m=>!!(m&&m.auto&&m.lastAt);
+const bkAutoFresh=m=>bkAutoOn(m)&&Date.now()-m.lastAt<30*3600e3;
+function bkAutoCode(bid){ const b=brOf(bid)||{id:bid,name:bid}, u=auth.currentUser, rt=u&&u.refreshToken, cfg=window.FB_CONFIG||{};
+  if(!rt) return null;
+  return BK_AUTO_GS.split("__BID__").join(bid).split("__BNAME__").join(brLabel(b)).split("__PID__").join(cfg.projectId||"so-cskh").split("__KEY__").join(cfg.apiKey||"").split("__RT__").join(rt); }
+function bkAutoGuide(bid){ const code=bkAutoCode(bid); if(!code){ toast("Chưa lấy được khoá đăng nhập — đăng xuất rồi đăng nhập lại, thử lại"); return; }
+  const el=document.createElement("div"); el.className="drv-guide"; el.innerHTML=`<div class="drv-card"><div class="drv-h"><b>Cài sao lưu tự động 23h · ${esc(brLabel(brOf(bid)||{id:bid}))}</b><button type="button" class="btn ghost sm" data-drvx>Đóng</button></div>
+    <ol>
+      <li>Trên máy tính, đăng nhập <b>Gmail của GĐ chi nhánh</b> (chính Gmail bạn muốn lưu dữ liệu), mở <b>script.google.com</b> → <b>Dự án mới</b>.</li>
+      <li>Xoá hết chữ có sẵn. Bấm <b>Sao chép mã</b> dưới đây, dán vào, bấm 💾 Lưu.</li>
+      <li>Ở thanh trên chọn hàm <b>caiDat</b> → bấm <b>▶ Chạy</b> → <b>Xem xét quyền</b> → chọn Gmail của bạn → <b>Cho phép</b>.</li>
+      <li>Xong. Script chạy sao lưu ngay lần đầu và <b>tự chạy lúc 23h mỗi đêm</b>. Chi nhánh đông ba mẹ thì lần đầu mất vài lượt (tự chạy tiếp mỗi phút, không cần làm gì). Trong Drive sẽ có thư mục <b>Sổ CSKH – tên chi nhánh → Ba mẹ → từng ba mẹ</b> với 2 file. Quay lại app sẽ thấy "Tự động 23h ✅".</li>
+    </ol>
+    <p class="notice">⚠️ Mã này chứa khoá đăng nhập riêng của bạn. <b>Chỉ dán vào script của bạn, không gửi cho ai.</b> Nếu lộ, đăng xuất tất cả thiết bị trong tài khoản Google hoặc báo GĐ Vùng để lấy mã mới. Muốn dừng tự động: chạy hàm <b>tatTuDong</b>.</p>
+    <div class="drv-act"><button type="button" class="btn sm" data-drvcode>Sao chép mã</button><a class="btn ghost sm" href="https://script.google.com/home/projects/create" target="_blank" rel="noopener">Mở script.google.com</a></div>
+    <textarea readonly class="drv-code">${esc(code)}</textarea></div>`;
+  document.body.appendChild(el);
+  el.addEventListener("click",async e=>{ if(e.target===el||e.target.closest("[data-drvx]")){ el.remove(); return; }
+    if(e.target.closest("[data-drvcode]")){ try{ await navigator.clipboard.writeText(code); toast("Đã sao chép mã"); }catch(_){ const t=el.querySelector("textarea"); t.select(); document.execCommand("copy"); toast("Đã sao chép mã"); } } }); }
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-bkauto]"); if(g) bkAutoGuide(g.dataset.bkauto); });
+
+function backupBlock(b){ bkLoadMeta(b.id); const m=S.bk.meta[b.id], can=bkCanRun(b.id), run=S.bk.running===b.id, fid=lsGet(bkKey(b.id,"folder"));
+  const last=m&&m.lastAt?new Date(m.lastAt):null, fresh=(m&&m.lastDate===today())||bkAutoFresh(m);
+  const txt=m===null?"Đang kiểm tra…":last?`${fresh?"✅":"⚠️"} Lần gần nhất: ${last.toTimeString().slice(0,5)} ${fmtShort(ymd(last))}${bkAutoOn(m)?" · Tự động 23h":(m.byName?" · "+esc(m.byName):"")}${m.nBm!=null?` · ${m.nBm} ba mẹ`:""}`:"❌ Chưa sao lưu lần nào";
+  const showLink=S.isBoss||b.id===S.myBranch;
+  return `<div class="bk2">${showLink?`<div class="bk2-link"><span>🔗 Link riêng</span><code>${esc(brLink(b).replace(/^https?:\/\//,""))}</code><button type="button" class="btn ghost sm" data-brcopy="${esc(b.id)}">Sao chép</button></div>`:""}
+    <div class="bk2-st"><span>💾 Sao lưu Drive riêng của chi nhánh</span><b class="${fresh?"ok":last?"warn":"off"}">${txt}</b></div>
+    ${can?`<div class="bk2-act"><button type="button" class="btn sm" data-bkauto="${esc(b.id)}">${bkAutoOn(m)?"Lấy lại mã tự động 23h":"⏰ Cài sao lưu tự động 23h"}</button><button type="button" class="btn ghost sm" data-bkrun="${esc(b.id)}" ${run?"disabled":""}>${run?"Đang sao lưu…":"Sao lưu ngay (thủ công)"}</button>${fid?`<a class="btn ghost sm" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/${esc(fid)}">Mở folder Drive</a>`:""}</div>
+    <p class="notice">File lưu trong Google Drive của <b>${esc((auth.currentUser||{}).email||"bạn")}</b>, folder "Sổ CSKH – ${esc(brLabel(b))}". Mỗi lần 2 file: bảng Google Sheets (dễ xem) + file .json (đủ để khôi phục). Không ai ngoài bạn thấy folder này.</p><p class="notice">⏰ <b>Tự động 23h:</b> cài 1 lần trong Gmail của bạn. Mỗi đêm tự lưu vào Drive của bạn, <b>mỗi ba mẹ 1 thư mục</b> gồm file Hồ sơ &amp; quá trình (từ lúc đi tập máy đến nay) và file Quá trình thực hành PPTN. Không cần mở app.</p>`
+    :`<p class="notice">Chỉ GĐ chi nhánh tự sao lưu vào Drive của mình. ${S.isBoss?"Giám đốc Vùng chỉ thấy trạng thái, không xem được file.":""}</p>`}</div>`; }
+document.addEventListener("click",async e=>{
+  const r=e.target.closest("[data-bkrun]"); if(r){ bkRun(r.dataset.bkrun,r); return; }
+  const c=e.target.closest("[data-brcopy]"); if(c){ const b=brOf(c.dataset.brcopy); const u=brLink(b); try{ await navigator.clipboard.writeText(u); toast("Đã sao chép: "+u); }catch(_){ prompt("Sao chép link chi nhánh:",u); } return; }
+  const k=e.target.closest("#bkBannerGo"); if(k){ bkRun(S.myBranch,k); return; }
+  const x=e.target.closest("#bkBannerX"); if(x){ lsSet(bkKey(S.myBranch,"skip"),today()); bkBanner(); return; } });
+/* nhắc sao lưu mỗi ngày cho GĐ chi nhánh (trình duyệt chặn tự mở cửa sổ xin quyền, nên cần 1 lần bấm) */
+function bkBanner(){ let el=$("bkBanner"); const bid=S.myBranch;
+  const need=bkCanRun(bid)&&lsGet(bkKey(bid,"last"))!==today()&&lsGet(bkKey(bid,"skip"))!==today()&&!(S.bk.meta[bid]&&S.bk.meta[bid].lastDate===today())&&!bkAutoFresh(S.bk.meta[bid]);
+  if(!need){ if(el) el.remove(); return; } if(S.bk.meta[bid]===undefined){ bkLoadMeta(bid); return; }
+  if(!el){ el=document.createElement("div"); el.id="bkBanner"; el.className="bk-banner"; const mn=document.querySelector("main"); (mn||document.body).prepend(el); }
+  el.innerHTML=S.bk.running?`<span>💾 Đang sao lưu dữ liệu chi nhánh vào Drive của bạn…</span>`:`<span>💾 Hôm nay chưa sao lưu dữ liệu chi nhánh vào Drive của bạn.</span><button type="button" class="btn sm" id="bkBannerGo">Sao lưu ngay</button><button type="button" class="btn ghost sm" id="bkBannerX" aria-label="Để sau">Để sau</button>`; }
+setInterval(()=>{ try{ if(S.db&&S.myBranch) bkBanner(); }catch(e){} },60000); setTimeout(()=>{ try{ if(S.db&&S.myBranch) bkBanner(); }catch(e){} },4000);
 $("brBtn").onclick=()=>{ $("brSheet").hidden=false; document.body.style.overflow="hidden"; renderBrSheet(); };
 $("brBack").onclick=()=>{ $("brSheet").hidden=true; document.body.style.overflow=""; };
 function renderBrSheet(){
