@@ -1,0 +1,40 @@
+# ===== Phụ thuộc & bản build =====
+node_modules/
+.firebase/
+public/index.html
+dist/
+*.log
+npm-debug.log*
+
+# ===== Bí mật – KHÔNG BAO GIỜ đưa lên GitHub =====
+.env
+.env.*
+!.env.example
+public/config.js
+*service-account*.json
+*serviceAccount*.json
+sa.json
+sa_*.json
+sa*.b64
+*-key.json
+*.pem
+*.p12
+*.key
+.runtimeconfig.json
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# ===== Sao lưu / file tạm =====
+backup_*
+*_backup.html
+*.b64
+*.tgz
+*.zip
+go.sh
+
+# ===== Hệ điều hành / editor =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

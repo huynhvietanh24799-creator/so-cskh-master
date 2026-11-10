@@ -1,0 +1,130 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function rolesPath() { return /databases/$(database)/documents/config/roles; }
+    function isBoss() { return signedIn() && exists(rolesPath()) && (get(rolesPath()).data.boss == request.auth.uid || request.auth.uid in get(rolesPath()).data.get('bosses', [])); }
+    function staffDoc(uid) { return get(/databases/$(database)/documents/staff/$(uid)).data; }
+    function isApproved(uid) { return staffDoc(uid).approved == true; }
+    // Người đăng nhập là GĐ Chi nhánh / Trợ lý của chi nhánh b
+    // Người đăng nhập (đã duyệt) cùng chi nhánh b
+    function isMemberOf(b) {
+      let m = staffDoc(request.auth.uid);
+      return signedIn() && b != '' && m.approved == true && m.get('chiNhanh', '') == b;
+    }
+    function isMgrOf(b) {
+      let m = staffDoc(request.auth.uid);
+      return signedIn() && b != '' && m.approved == true && m.get('chucVu', 'nv') in ['cn', 'tl'] && m.get('chiNhanh', '') == b;
+    }
+    // GĐ Chi nhánh, hoặc Trợ lý được GĐ Chi nhánh cấp quyền GĐ
+    function isCnOf(b) {
+      let m = staffDoc(request.auth.uid);
+      return signedIn() && b != '' && m.approved == true && m.get('chiNhanh', '') == b
+             && (m.get('chucVu', 'nv') == 'cn' || (m.get('chucVu', 'nv') == 'tl' && m.get('quyenGd', false) == true));
+    }
+    // Đúng GĐ Chi nhánh (dùng để cấp / thu hồi quyền GĐ cho trợ lý)
+    function isRealCnOf(b) {
+      let m = staffDoc(request.auth.uid);
+      return signedIn() && b != '' && m.approved == true && m.get('chucVu', 'nv') == 'cn' && m.get('chiNhanh', '') == b;
+    }
+    function branchOf(uid) { return staffDoc(uid).get('chiNhanh', ''); }
+
+    // Ai là Giám đốc Vùng: người đăng nhập đầu tiên, sau đó khoá
+    match /config/roles {
+      allow read: if signedIn();
+      allow create: if signedIn() && !exists(rolesPath()) && request.resource.data.boss == request.auth.uid;
+      allow update: if isBoss() && request.resource.data.boss == resource.data.boss;
+      allow delete: if false;
+    }
+    // Danh sách tổ, cài đặt: mọi người đọc, chỉ Giám đốc Vùng sửa
+    match /config/{docId} {
+      allow read: if signedIn();
+      allow write: if isBoss() && docId != 'roles';
+    }
+    // Chi nhánh: mọi người đọc (để chọn khi đăng ký), chỉ Giám đốc Vùng tạo/sửa/xóa
+    match /branches/{id} {
+      allow read: if signedIn();
+      allow write: if isBoss();
+      // GĐ Chi nhánh gắn link nhóm Zalo riêng, cài đặt backup Google Drive cho chi nhánh mình
+      allow update: if isCnOf(id) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['zalo', 'backupGmail', 'backupFolderId', 'backupFolderLink', 'updatedAt']);
+    }
+    // Số liệu chi nhánh (đi tập, ba mẹ mới): ai đăng nhập cũng xem số; người trong chi nhánh cập nhật
+    match /bstats/{id} {
+      allow read: if signedIn();
+      allow write: if isBoss() || (signedIn() && isApproved(request.auth.uid)
+                     && request.resource.data.branch == branchOf(request.auth.uid)
+                     && id.matches(request.resource.data.branch + '_.*'));
+    }
+    // Dò SĐT trùng giữa các chi nhánh — chỉ chứa tên + SĐT + CN + lý do xoá
+    match /phoneIndex/{sdt} {
+      allow read: if signedIn() && isApproved(request.auth.uid);
+      match /uses/{useId} {
+        allow read: if signedIn() && isApproved(request.auth.uid);
+        allow create, update: if signedIn() && isApproved(request.auth.uid) && (request.resource.data.sid == request.auth.uid || isBoss());
+        allow delete: if signedIn() && isApproved(request.auth.uid) && resource.data.sid == request.auth.uid;
+      }
+    }
+    // Thông điệp từ GĐ Chi nhánh — mỗi chi nhánh 1 bản "current"
+    match /branches/{bid}/msgs/{mid} {
+      allow read: if signedIn();
+      allow write: if isBoss() || isCnOf(bid);
+    }
+    // So nhat ky nghiep vu chi nhanh: nguoi trong chi nhanh xem; GD CN / quyen GD / GD Vung ghi; khong xoa
+    match /branches/{bid}/nhatky/{day} {
+      allow read: if isBoss() || isMemberOf(bid);
+      allow create, update: if isBoss() || isMemberOf(bid);
+      allow delete: if false;
+    }
+    // Lịch sử nhân sự
+    match /nslog/{id} {
+      allow read: if isBoss();
+      allow create: if isBoss() || (signedIn() && isApproved(request.auth.uid) && staffDoc(request.auth.uid).get('chucVu', 'nv') in ['cn', 'tl']);
+      allow update, delete: if false;
+    }
+    // Hồ sơ nhân viên
+    match /staff/{uid} {
+      allow read: if isBoss() || (signedIn() && (request.auth.uid == uid || isApproved(request.auth.uid)));
+      allow create: if signedIn() && request.auth.uid == uid
+                    && (isBoss() || (request.resource.data.approved == false && request.resource.data.get('chucVu', 'nv') == 'nv'));
+      allow update: if isBoss()
+                    // tự sửa hồ sơ: không tự duyệt, không tự đổi chức vụ; đã duyệt thì không tự đổi chi nhánh
+                    || (signedIn() && request.auth.uid == uid
+                        && request.resource.data.get('approved', false) == resource.data.get('approved', false)
+                        && request.resource.data.get('chucVu', 'nv') == resource.data.get('chucVu', 'nv')
+                        && request.resource.data.get('quyenGd', false) == resource.data.get('quyenGd', false)
+                        && (resource.data.get('approved', false) == false
+                            || request.resource.data.get('chiNhanh', '') == resource.data.get('chiNhanh', '')))
+                    // GĐ Chi nhánh quản lý nhân sự chi nhánh mình: duyệt, đổi nhân viên <-> trợ lý, cho nghỉ, mở lại
+                    // (không đổi chi nhánh, không đặt GĐ Chi nhánh)
+                    || (isCnOf(resource.data.get('chiNhanh', ''))
+                        && request.auth.uid != uid
+                        && resource.data.get('chucVu', 'nv') in ['nv', 'tl']
+                        && request.resource.data.get('chucVu', 'nv') in ['nv', 'tl']
+                        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['approved', 'chucVu', 'disabled', 'disabledAt', 'toPhanCong', 'updatedAt']))
+                    // GĐ Chi nhánh cấp / thu hồi quyền GĐ cho trợ lý của chi nhánh mình
+                    || (isRealCnOf(resource.data.get('chiNhanh', ''))
+                        && resource.data.get('chucVu', 'nv') == 'tl'
+                        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['quyenGd', 'updatedAt']));
+      allow delete: if isBoss()
+                    || (isCnOf(resource.data.get('chiNhanh', '')) && resource.data.get('approved', false) == false);
+      // Ba mẹ, kế hoạch, báo cáo, điểm danh, ghi chú:
+      // Giám đốc Vùng: tất cả; mọi người đã duyệt trong cùng chi nhánh: xem, nhập, sửa của nhau;
+      // chưa có chi nhánh: chỉ của chính mình.
+      // Xóa hẳn ba mẹ: Giám đốc Vùng, hoặc GĐ Chi nhánh khi giao ba mẹ cho người khác trong chi nhánh.
+      match /{sub}/{docId} {
+        allow read: if isBoss()
+                    || (signedIn() && request.auth.uid == uid && isApproved(uid))
+                    || isMemberOf(branchOf(uid));
+        // Ghi chú của sếp cho từng ba mẹ: chỉ GĐ Chi nhánh / Trợ lý (và GĐ Vùng) viết; nhân viên chỉ xem
+        allow create, update: if (sub != 'notes' && (isBoss()
+                    || (signedIn() && request.auth.uid == uid && isApproved(uid))
+                    || isMemberOf(branchOf(uid))))
+                    || (sub == 'notes' && (isBoss() || isMgrOf(branchOf(uid))));
+        allow delete: if isBoss()
+                    || (sub != 'parents' && sub != 'notes' && ((signedIn() && request.auth.uid == uid && isApproved(uid)) || isMemberOf(branchOf(uid))))
+                    || (sub == 'notes' && isMgrOf(branchOf(uid)))
+                    || (sub == 'parents' && isCnOf(branchOf(uid)));
+      }
+    }
+  }
+}
